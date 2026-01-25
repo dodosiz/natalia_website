@@ -19,6 +19,11 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <!-- Navigation -->
@@ -48,6 +53,7 @@
           <img
             src="https://via.placeholder.com/1920x1080/000000/ffffff?text=Modern+Architecture"
             alt="Modern Architecture"
+            loading="eager"
           />
           <div class="hero-overlay"></div>
         </div>
@@ -55,6 +61,7 @@
           <img
             src="https://via.placeholder.com/1920x1080/1a1a1a/ffffff?text=Interior+Design"
             alt="Interior Design"
+            loading="lazy"
           />
           <div class="hero-overlay"></div>
         </div>
@@ -62,6 +69,7 @@
           <img
             src="https://via.placeholder.com/1920x1080/000000/ffffff?text=3D+Visualization"
             alt="3D Visualization"
+            loading="lazy"
           />
           <div class="hero-overlay"></div>
         </div>
@@ -96,6 +104,7 @@
             <img
               src="https://via.placeholder.com/500x600/cccccc/000000?text=Portrait"
               alt="Architect Portrait"
+              loading="lazy"
             />
           </div>
           <div class="about-text">
@@ -159,104 +168,30 @@
         <div class="section-header">
           <h2 class="section-title">Portfolio</h2>
           <div class="section-divider"></div>
-          <p class="section-description">
-            Selected projects demonstrating diverse design approaches
-          </p>
+          <p class="section-description">Browse through my portfolio booklet</p>
         </div>
 
-        <div class="portfolio-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="interior">Interior</button>
-          <button class="filter-btn" data-filter="architecture">
-            Architecture
+        <div class="booklet-wrapper">
+          <div class="book" id="portfolio-book">
+            <div class="page page-left" id="portfolio-page-left">
+              <canvas id="portfolio-canvas-left"></canvas>
+            </div>
+            <div class="page page-right" id="portfolio-page-right">
+              <canvas id="portfolio-canvas-right"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-controls">
+          <button id="portfolio-prev-btn" class="btn portfolio-btn">
+            ← Previous
           </button>
-          <button class="filter-btn" data-filter="concept">Concept</button>
-        </div>
-
-        <div class="portfolio-grid">
-          <div class="portfolio-item" data-category="architecture">
-            <div class="portfolio-image">
-              <img
-                src="https://via.placeholder.com/600x400/cccccc/000000?text=Modern+Villa"
-                alt="Modern Villa"
-              />
-              <div class="portfolio-overlay">
-                <h3>Modern Villa</h3>
-                <p>Architecture</p>
-                <button class="btn-view" data-project="1">View Details</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item" data-category="interior">
-            <div class="portfolio-image">
-              <img
-                src="https://via.placeholder.com/600x400/999999/000000?text=Luxury+Apartment"
-                alt="Luxury Apartment"
-              />
-              <div class="portfolio-overlay">
-                <h3>Luxury Apartment</h3>
-                <p>Interior Design</p>
-                <button class="btn-view" data-project="2">View Details</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item" data-category="concept">
-            <div class="portfolio-image">
-              <img
-                src="https://via.placeholder.com/600x400/aaaaaa/000000?text=Sustainable+Complex"
-                alt="Sustainable Complex"
-              />
-              <div class="portfolio-overlay">
-                <h3>Sustainable Complex</h3>
-                <p>Concept Design</p>
-                <button class="btn-view" data-project="3">View Details</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item" data-category="architecture">
-            <div class="portfolio-image">
-              <img
-                src="https://via.placeholder.com/600x400/bbbbbb/000000?text=Commercial+Tower"
-                alt="Commercial Tower"
-              />
-              <div class="portfolio-overlay">
-                <h3>Commercial Tower</h3>
-                <p>Architecture</p>
-                <button class="btn-view" data-project="4">View Details</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item" data-category="interior">
-            <div class="portfolio-image">
-              <img
-                src="https://via.placeholder.com/600x400/888888/000000?text=Restaurant+Design"
-                alt="Restaurant Design"
-              />
-              <div class="portfolio-overlay">
-                <h3>Restaurant Interior</h3>
-                <p>Interior Design</p>
-                <button class="btn-view" data-project="5">View Details</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="portfolio-item" data-category="concept">
-            <div class="portfolio-image">
-              <img
-                src="https://via.placeholder.com/600x400/cccccc/000000?text=Residential+Complex"
-                alt="Residential Complex"
-              />
-              <div class="portfolio-overlay">
-                <h3>Residential Complex</h3>
-                <p>Concept</p>
-                <button class="btn-view" data-project="6">View Details</button>
-              </div>
-            </div>
-          </div>
+          <span id="portfolio-page-info" class="portfolio-page-info"
+            >Page 1 of 1</span
+          >
+          <button id="portfolio-next-btn" class="btn portfolio-btn">
+            Next →
+          </button>
         </div>
       </div>
     </section>
@@ -372,6 +307,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
