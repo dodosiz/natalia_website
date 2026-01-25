@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional Architecture Portfolio - Minimal Black & White Design"
+    />
+    <meta
+      name="keywords"
+      content="architecture, interior design, 3D rendering, portfolio"
+    />
+    <title>Architecture Portfolio | Minimal Design</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <h1 class="logo-text">Natalia Papastoitsi</h1>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-slider">
+        <div class="hero-slide active">
+          <img
+            src="https://via.placeholder.com/1920x1080/000000/ffffff?text=Modern+Architecture"
+            alt="Modern Architecture"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide">
+          <img
+            src="https://via.placeholder.com/1920x1080/1a1a1a/ffffff?text=Interior+Design"
+            alt="Interior Design"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-slide">
+          <img
+            src="https://via.placeholder.com/1920x1080/000000/ffffff?text=3D+Visualization"
+            alt="3D Visualization"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <h1 class="hero-title animate-fade-in">
+          Architecture. Innovation. Transparency.
+        </h1>
+        <p class="hero-subtitle animate-fade-in-delay">
+          Creating spaces that inspire and transform
+        </p>
+        <a href="#portfolio" class="btn btn-primary animate-fade-in-delay-2"
+          >View Portfolio</a
+        >
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn prev" aria-label="Previous slide">‹</button>
+        <button class="slider-btn next" aria-label="Next slide">›</button>
+      </div>
+      <div class="slider-dots"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="https://via.placeholder.com/500x600/cccccc/000000?text=Portrait"
+              alt="Architect Portrait"
+            />
+          </div>
+          <div class="about-text">
+            <h3>Transforming Visions into Reality</h3>
+            <p>
+              With over a decade of experience in architectural design and
+              interior spaces, I specialize in creating innovative solutions
+              that blend functionality with aesthetic excellence. My approach
+              combines traditional architectural principles with cutting-edge
+              technology and sustainable practices.
+            </p>
+            <p>
+              Every project is an opportunity to challenge conventional thinking
+              and deliver spaces that not only meet but exceed expectations. I
+              believe architecture should tell a story, evoke emotions, and
+              enhance the human experience.
+            </p>
+
+            <div class="skills-grid">
+              <div class="skill-item">
+                <div class="skill-icon">■</div>
+                <h4>Architectural Design</h4>
+                <p>
+                  Comprehensive planning and design for residential and
+                  commercial projects
+                </p>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">■</div>
+                <h4>Interior Design</h4>
+                <p>
+                  Crafting beautiful, functional interior spaces that reflect
+                  your vision
+                </p>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">■</div>
+                <h4>3D Visualization</h4>
+                <p>
+                  Photorealistic renders and virtual walkthroughs of your
+                  projects
+                </p>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon">■</div>
+                <h4>Project Management</h4>
+                <p>
+                  End-to-end coordination ensuring timely and budget-conscious
+                  delivery
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Portfolio</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">
+            Selected projects demonstrating diverse design approaches
+          </p>
+        </div>
+
+        <div class="portfolio-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="interior">Interior</button>
+          <button class="filter-btn" data-filter="architecture">
+            Architecture
+          </button>
+          <button class="filter-btn" data-filter="concept">Concept</button>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="architecture">
+            <div class="portfolio-image">
+              <img
+                src="https://via.placeholder.com/600x400/cccccc/000000?text=Modern+Villa"
+                alt="Modern Villa"
+              />
+              <div class="portfolio-overlay">
+                <h3>Modern Villa</h3>
+                <p>Architecture</p>
+                <button class="btn-view" data-project="1">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="interior">
+            <div class="portfolio-image">
+              <img
+                src="https://via.placeholder.com/600x400/999999/000000?text=Luxury+Apartment"
+                alt="Luxury Apartment"
+              />
+              <div class="portfolio-overlay">
+                <h3>Luxury Apartment</h3>
+                <p>Interior Design</p>
+                <button class="btn-view" data-project="2">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="concept">
+            <div class="portfolio-image">
+              <img
+                src="https://via.placeholder.com/600x400/aaaaaa/000000?text=Sustainable+Complex"
+                alt="Sustainable Complex"
+              />
+              <div class="portfolio-overlay">
+                <h3>Sustainable Complex</h3>
+                <p>Concept Design</p>
+                <button class="btn-view" data-project="3">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="architecture">
+            <div class="portfolio-image">
+              <img
+                src="https://via.placeholder.com/600x400/bbbbbb/000000?text=Commercial+Tower"
+                alt="Commercial Tower"
+              />
+              <div class="portfolio-overlay">
+                <h3>Commercial Tower</h3>
+                <p>Architecture</p>
+                <button class="btn-view" data-project="4">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="interior">
+            <div class="portfolio-image">
+              <img
+                src="https://via.placeholder.com/600x400/888888/000000?text=Restaurant+Design"
+                alt="Restaurant Design"
+              />
+              <div class="portfolio-overlay">
+                <h3>Restaurant Interior</h3>
+                <p>Interior Design</p>
+                <button class="btn-view" data-project="5">View Details</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="concept">
+            <div class="portfolio-image">
+              <img
+                src="https://via.placeholder.com/600x400/cccccc/000000?text=Residential+Complex"
+                alt="Residential Complex"
+              />
+              <div class="portfolio-overlay">
+                <h3>Residential Complex</h3>
+                <p>Concept</p>
+                <button class="btn-view" data-project="6">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Contact</h2>
+          <div class="section-divider"></div>
+          <p class="section-description">Let's discuss your next project</p>
+        </div>
+
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Information</h3>
+            <div class="contact-item">
+              <h4>Email</h4>
+              <a href="mailto:info@architect.com">info@architect.com</a>
+            </div>
+            <div class="contact-item">
+              <h4>Phone</h4>
+              <a href="tel:+302101234567">+30 210 123 4567</a>
+            </div>
+            <div class="contact-item">
+              <h4>Location</h4>
+              <p>Athens, Greece</p>
+            </div>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder=" "
+              />
+              <label for="name">Name</label>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder=" "
+              />
+              <label for="email">Email</label>
+            </div>
+            <div class="form-group">
+              <select id="projectType" name="projectType" required>
+                <option value="">Project Type</option>
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="interior">Interior Design</option>
+                <option value="consultation">Consultation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder=" "
+              ></textarea>
+              <label for="message">Message</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div class="form-message"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Natalia Papastoitsi</h3>
+            <p>Creating spaces that inspire</p>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Architecture Portfolio. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <button class="lightbox-btn prev">‹</button>
+        <div class="lightbox-inner">
+          <img src="" alt="Project Image" />
+          <div class="lightbox-info">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+        <button class="lightbox-btn next">›</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
