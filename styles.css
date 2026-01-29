@@ -463,6 +463,57 @@ section {
 .portfolio {
   background: var(--bg-light);
   padding: 6rem 0;
+  position: relative;
+}
+
+/* Loading Overlay for Portfolio */
+.loading-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
+  transition: opacity 0.3s ease;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay p {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+
+.loading-percentage {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-top: 10px;
 }
 
 /* Booklet Styles */
@@ -478,15 +529,14 @@ section {
 .book {
   position: relative;
   display: flex;
-  width: 1200px;
-  height: 800px;
-  max-width: 95vw;
+  /* PDF dimensions: 22cm width x 26cm height per page, 2 pages side by side */
+  width: 1654px; /* 22cm * 2 pages * 37.5px/cm ≈ 1650px */
+  height: 975px; /* 26cm * 37.5px/cm ≈ 975px */
   background: #fff;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   border: 1px solid #e0e0e0;
   overflow: visible;
   transform-style: preserve-3d;
-  will-change: auto;
 }
 
 .page {
@@ -499,7 +549,6 @@ section {
   position: relative;
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  will-change: auto;
 }
 
 .page-left {
@@ -513,11 +562,12 @@ section {
 }
 
 .page canvas {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   display: block;
-  image-rendering: auto;
   image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  object-fit: fill;
 }
 
 /* Page turning animation */
@@ -525,14 +575,12 @@ section {
   transform-origin: left center;
   animation: turnPageNext 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   z-index: 10;
-  will-change: transform;
 }
 
 .book.turning-prev .page-left {
   transform-origin: right center;
   animation: turnPagePrev 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   z-index: 10;
-  will-change: transform;
 }
 
 @keyframes turnPageNext {
@@ -639,6 +687,67 @@ section {
   color: #333;
   min-width: 150px;
   text-align: center;
+}
+
+/* Portfolio Search Controls */
+.portfolio-search-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: fit-content;
+  margin: 20px auto 0;
+}
+
+.portfolio-search-controls label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.page-jump-input {
+  width: 120px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.page-jump-input:focus {
+  border-color: #000;
+}
+
+.page-jump-input::-webkit-inner-spin-button,
+.page-jump-input::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.btn-jump {
+  min-width: 60px;
+  padding: 8px 16px;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.btn-jump:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+.btn-jump:active {
+  transform: translateY(0);
 }
 
 /* ========================================
@@ -907,37 +1016,124 @@ section {
     grid-template-columns: 1fr;
   }
 
-  /* Booklet responsive */
+  /* Booklet responsive - maintaining 22:26 aspect ratio per page */
   .book {
-    width: 1000px;
-    height: 667px;
+    width: 1320px; /* 22cm * 2 * 30px/cm */
+    height: 780px; /* 26cm * 30px/cm */
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
   .book {
-    width: 800px;
-    height: 533px;
+    width: 1100px; /* 22cm * 2 * 25px/cm */
+    height: 650px; /* 26cm * 25px/cm */
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1150px) {
   .book {
-    width: 600px;
-    height: 400px;
+    width: 880px; /* 22cm * 2 * 20px/cm */
+    height: 520px; /* 26cm * 20px/cm */
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 950px) {
   .book {
-    width: 90vw;
-    height: 60vw;
+    width: 660px; /* 22cm * 2 * 15px/cm */
+    height: 390px; /* 26cm * 15px/cm */
+  }
+}
+
+@media (max-width: 700px) {
+  .book {
+    width: 95vw;
+    max-width: 100%;
+    height: calc(95vw * 0.59); /* Maintaining 22:26 ratio (26/44 ≈ 0.59) */
+  }
+
+  .portfolio-controls,
+  .portfolio-search-controls {
+    width: 95vw;
+    max-width: 100%;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .portfolio-btn {
+    padding: 14px 20px;
+    font-size: 15px;
+    min-height: 48px;
+    flex: 1;
+  }
+
+  .portfolio-page-info {
+    font-size: 14px;
+    min-width: 100px;
+    order: -1;
+    margin-bottom: 5px;
   }
 
   .portfolio-controls {
-    flex-direction: column;
-    gap: 10px;
-    padding: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .portfolio-search-controls {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .book {
+    width: 98vw;
+    height: calc(98vw * 0.59);
+  }
+
+  .portfolio-controls,
+  .portfolio-search-controls {
+    width: 98vw;
+    padding: 12px;
+  }
+
+  .portfolio-btn {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .portfolio-page-info {
+    font-size: 13px;
+  }
+
+  .loading-overlay p {
+    font-size: 16px;
+  }
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 900px) and (orientation: landscape) {
+  .book {
+    width: 90vw;
+    height: calc(90vh - 120px);
+    max-height: calc(90vw * 0.59);
+  }
+
+  .portfolio-controls,
+  .portfolio-search-controls {
+    padding: 10px 15px;
+  }
+
+  .portfolio-btn {
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .portfolio-page-info {
+    font-size: 13px;
   }
 }
 

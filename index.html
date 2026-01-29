@@ -105,7 +105,7 @@
         <div class="about-content">
           <div class="about-image">
             <img
-              src="https://via.placeholder.com/500x600/cccccc/000000?text=Portrait"
+              src="data/profile.jpg"
               alt="Architect Portrait"
               loading="lazy"
             />
@@ -174,6 +174,12 @@
           <p class="section-description">Browse through my portfolio booklet</p>
         </div>
 
+        <div class="loading-overlay" id="portfolio-loading-overlay">
+          <div class="loading-spinner"></div>
+          <p>Loading PDF...</p>
+          <p class="loading-percentage" id="portfolio-loading-percentage">0%</p>
+        </div>
+
         <div class="booklet-wrapper">
           <div class="book" id="portfolio-book">
             <div class="page page-left" id="portfolio-page-left">
@@ -195,6 +201,18 @@
           <button id="portfolio-next-btn" class="btn portfolio-btn">
             Next →
           </button>
+        </div>
+
+        <div class="portfolio-search-controls">
+          <label for="portfolio-page-jump">Jump to page:</label>
+          <input
+            type="number"
+            id="portfolio-page-jump"
+            class="page-jump-input"
+            min="1"
+            placeholder="Enter page number"
+          />
+          <button id="portfolio-jump-btn" class="btn btn-jump">Go</button>
         </div>
       </div>
     </section>
