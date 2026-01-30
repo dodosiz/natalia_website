@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "id": "residential",
+      "title": "Residential"
+    },
+    {
+      "id": "commercial",
+      "title": "Commercial / Offices"
+    },
+    {
+      "id": "concept",
+      "title": "Concept / Competition"
+    },
+    {
+      "id": "interior",
+      "title": "Interior Design"
+    },
+    {
+      "id": "construction",
+      "title": "Construction / Technical"
+    }
+  ]
+}
