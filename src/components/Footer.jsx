@@ -50,7 +50,10 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2026 Architecture Portfolio. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Natalia Papastoitsi. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>

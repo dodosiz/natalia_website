@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Lightbox from "../components/Lightbox";
@@ -7,7 +7,6 @@ import projectsData from "../data/projects.json";
 
 function ProjectDetailPage() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [project, setProject] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);

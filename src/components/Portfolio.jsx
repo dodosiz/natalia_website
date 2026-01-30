@@ -7,7 +7,6 @@ function Portfolio() {
     totalPages,
     isLoading,
     loadingProgress,
-    error,
     currentSpread,
     setCurrentSpread,
   } = usePDF();
