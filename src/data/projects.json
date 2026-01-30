@@ -8,34 +8,34 @@
       "year": "2025",
       "type": "Residential",
       "role": "Design & Visualization",
-      "thumbnail": "https://via.placeholder.com/600x400/000000/ffffff?text=Modern+Villa+Athens",
+      "thumbnail": "https://placehold.co/600x400/1a1a1a/ffffff?text=Modern+Villa+Athens",
       "featured": true,
       "description": "A contemporary villa that seamlessly blends modern architecture with the natural landscape. The design emphasizes open spaces, natural light, and sustainable materials to create a harmonious living environment.",
       "concept": "The concept was to create a modern sanctuary that respects the surrounding environment while providing luxurious living spaces. We solved the challenge of integrating large glass surfaces without compromising privacy through strategic landscaping and positioning.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/000000/ffffff?text=Villa+Exterior",
+          "url": "https://placehold.co/1920x1080/1a1a1a/ffffff?text=Villa+Exterior",
           "caption": "Exterior view at sunset"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/1a1a1a/ffffff?text=Villa+Interior",
+          "url": "https://placehold.co/1920x1080/2a2a2a/ffffff?text=Villa+Interior",
           "caption": "Living room with panoramic views"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/2a2a2a/ffffff?text=Ground+Floor+Plan",
+          "url": "https://placehold.co/1920x1080/3a3a3a/ffffff?text=Ground+Floor+Plan",
           "caption": "Ground floor plan"
         },
         {
           "type": "section",
-          "url": "https://via.placeholder.com/1920x1080/3a3a3a/ffffff?text=Section+A-A",
+          "url": "https://placehold.co/1920x1080/4a4a4a/ffffff?text=Section+A-A",
           "caption": "Longitudinal section"
         },
         {
           "type": "detail",
-          "url": "https://via.placeholder.com/1920x1080/4a4a4a/ffffff?text=Detail+Facade",
+          "url": "https://placehold.co/1920x1080/5a5a5a/ffffff?text=Detail+Facade",
           "caption": "Facade detail - glass connection"
         }
       ]
@@ -48,29 +48,29 @@
       "year": "2024",
       "type": "Commercial / Offices",
       "role": "Design & Construction",
-      "thumbnail": "https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Corporate+Office",
+      "thumbnail": "https://placehold.co/600x400/2a2a2a/ffffff?text=Corporate+Office",
       "featured": true,
       "description": "A state-of-the-art office space designed to foster collaboration and productivity in the heart of Athens. The project combines sleek modern aesthetics with functional workspace solutions.",
       "concept": "We transformed a traditional office building into a dynamic workspace that encourages creativity and collaboration. The challenge was to maximize natural light in a dense urban setting while maintaining acoustic privacy for meeting rooms.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/1a1a1a/ffffff?text=Office+Lobby",
+          "url": "https://placehold.co/1920x1080/2a2a2a/ffffff?text=Office+Lobby",
           "caption": "Main lobby entrance"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/2a2a2a/ffffff?text=Open+Office",
+          "url": "https://placehold.co/1920x1080/3a3a3a/ffffff?text=Open+Office",
           "caption": "Open workspace area"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/3a3a3a/ffffff?text=Floor+Plan",
+          "url": "https://placehold.co/1920x1080/4a4a4a/ffffff?text=Floor+Plan",
           "caption": "Typical floor plan"
         },
         {
           "type": "detail",
-          "url": "https://via.placeholder.com/1920x1080/4a4a4a/ffffff?text=Lighting+Detail",
+          "url": "https://placehold.co/1920x1080/5a5a5a/ffffff?text=Lighting+Detail",
           "caption": "Integrated lighting system"
         }
       ]
@@ -83,29 +83,29 @@
       "year": "2025",
       "type": "Concept / Competition",
       "role": "Concept Design",
-      "thumbnail": "https://via.placeholder.com/600x400/2a2a2a/ffffff?text=Cultural+Center",
+      "thumbnail": "https://placehold.co/600x400/3a3a3a/ffffff?text=Cultural+Center",
       "featured": false,
       "description": "Competition entry for a new cultural center that celebrates Greek heritage while embracing contemporary design principles. The project won 2nd place in the international competition.",
       "concept": "The design reinterprets classical Greek architectural elements through a modern lens. The main challenge was creating a building that serves multiple cultural functions while maintaining architectural coherence and respecting the historical context of the site.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/2a2a2a/ffffff?text=Cultural+Center+Exterior",
+          "url": "https://placehold.co/1920x1080/3a3a3a/ffffff?text=Cultural+Center+Exterior",
           "caption": "Main facade concept"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/3a3a3a/ffffff?text=Interior+Hall",
+          "url": "https://placehold.co/1920x1080/4a4a4a/ffffff?text=Interior+Hall",
           "caption": "Main exhibition hall"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/4a4a4a/ffffff?text=Site+Plan",
+          "url": "https://placehold.co/1920x1080/5a5a5a/ffffff?text=Site+Plan",
           "caption": "Site plan and circulation"
         },
         {
           "type": "section",
-          "url": "https://via.placeholder.com/1920x1080/5a5a5a/ffffff?text=Section",
+          "url": "https://placehold.co/1920x1080/6a6a6a/ffffff?text=Section",
           "caption": "Cross section showing multilevel spaces"
         }
       ]
@@ -118,34 +118,34 @@
       "year": "2024",
       "type": "Interior Design",
       "role": "Interior Design & Visualization",
-      "thumbnail": "https://via.placeholder.com/600x400/3a3a3a/ffffff?text=Luxury+Apartment",
+      "thumbnail": "https://placehold.co/600x400/4a4a4a/ffffff?text=Luxury+Apartment",
       "featured": true,
       "description": "Complete interior redesign of a 180m² luxury apartment in one of Athens' most prestigious neighborhoods. The project balances elegance with functionality.",
       "concept": "The goal was to create a timeless interior that reflects the owner's sophisticated taste while maximizing spatial flow. We addressed the challenge of low ceiling heights through strategic use of lighting and vertical design elements.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/3a3a3a/ffffff?text=Living+Room",
+          "url": "https://placehold.co/1920x1080/4a4a4a/ffffff?text=Living+Room",
           "caption": "Living room with custom furniture"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/4a4a4a/ffffff?text=Kitchen",
+          "url": "https://placehold.co/1920x1080/5a5a5a/ffffff?text=Kitchen",
           "caption": "Modern kitchen design"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/5a5a5a/ffffff?text=Master+Bedroom",
+          "url": "https://placehold.co/1920x1080/6a6a6a/ffffff?text=Master+Bedroom",
           "caption": "Master bedroom suite"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/6a6a6a/ffffff?text=Floor+Plan",
+          "url": "https://placehold.co/1920x1080/7a7a7a/ffffff?text=Floor+Plan",
           "caption": "Floor plan - furniture layout"
         },
         {
           "type": "detail",
-          "url": "https://via.placeholder.com/1920x1080/7a7a7a/ffffff?text=Material+Board",
+          "url": "https://placehold.co/1920x1080/8a8a8a/ffffff?text=Material+Board",
           "caption": "Material and finishes palette"
         }
       ]
@@ -158,39 +158,39 @@
       "year": "2023-2024",
       "type": "Construction / Technical Drawings",
       "role": "Construction Documentation",
-      "thumbnail": "https://via.placeholder.com/600x400/4a4a4a/ffffff?text=Residential+Complex",
+      "thumbnail": "https://placehold.co/600x400/5a5a5a/ffffff?text=Residential+Complex",
       "featured": false,
       "description": "Complete construction documentation for a 12-unit residential complex. The project included detailed technical drawings, specifications, and coordination with structural and MEP engineers.",
       "concept": "This project focused on efficient construction methodology and cost optimization while maintaining high-quality residential standards. We developed innovative construction details to address complex waterproofing and thermal insulation requirements.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/4a4a4a/ffffff?text=Complex+View",
+          "url": "https://placehold.co/1920x1080/5a5a5a/ffffff?text=Complex+View",
           "caption": "Overall complex view"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/5a5a5a/ffffff?text=Site+Plan",
+          "url": "https://placehold.co/1920x1080/6a6a6a/ffffff?text=Site+Plan",
           "caption": "Site plan and parking"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/6a6a6a/ffffff?text=Typical+Floor",
+          "url": "https://placehold.co/1920x1080/7a7a7a/ffffff?text=Typical+Floor",
           "caption": "Typical floor plan"
         },
         {
           "type": "section",
-          "url": "https://via.placeholder.com/1920x1080/7a7a7a/ffffff?text=Building+Section",
+          "url": "https://placehold.co/1920x1080/8a8a8a/ffffff?text=Building+Section",
           "caption": "Building section"
         },
         {
           "type": "detail",
-          "url": "https://via.placeholder.com/1920x1080/8a8a8a/ffffff?text=Foundation+Detail",
+          "url": "https://placehold.co/1920x1080/9a9a9a/ffffff?text=Foundation+Detail",
           "caption": "Foundation detail"
         },
         {
           "type": "detail",
-          "url": "https://via.placeholder.com/1920x1080/9a9a9a/ffffff?text=Roof+Detail",
+          "url": "https://placehold.co/1920x1080/aaaaaa/ffffff?text=Roof+Detail",
           "caption": "Roof construction detail"
         }
       ]
@@ -203,34 +203,34 @@
       "year": "2025",
       "type": "Commercial",
       "role": "Design & Visualization",
-      "thumbnail": "https://via.placeholder.com/600x400/5a5a5a/ffffff?text=Boutique+Hotel",
+      "thumbnail": "https://placehold.co/600x400/6a6a6a/ffffff?text=Boutique+Hotel",
       "featured": true,
       "description": "A luxury boutique hotel design that embraces Cycladic architecture with a contemporary twist. The project features 20 suites with private pools and breathtaking sea views.",
       "concept": "The design honors traditional Cycladic architecture while incorporating modern luxury amenities. The main challenge was creating privacy between units while maximizing views and natural ventilation in a compact hillside site.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/5a5a5a/ffffff?text=Hotel+Exterior",
+          "url": "https://placehold.co/1920x1080/6a6a6a/ffffff?text=Hotel+Exterior",
           "caption": "Hotel exterior cascading down the hillside"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/6a6a6a/ffffff?text=Pool+Area",
+          "url": "https://placehold.co/1920x1080/7a7a7a/ffffff?text=Pool+Area",
           "caption": "Infinity pool and lounge area"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/7a7a7a/ffffff?text=Suite+Interior",
+          "url": "https://placehold.co/1920x1080/8a8a8a/ffffff?text=Suite+Interior",
           "caption": "Premium suite interior"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/8a8a8a/ffffff?text=Master+Plan",
+          "url": "https://placehold.co/1920x1080/9a9a9a/ffffff?text=Master+Plan",
           "caption": "Site master plan"
         },
         {
           "type": "section",
-          "url": "https://via.placeholder.com/1920x1080/9a9a9a/ffffff?text=Hillside+Section",
+          "url": "https://placehold.co/1920x1080/aaaaaa/ffffff?text=Hillside+Section",
           "caption": "Section showing terraced levels"
         }
       ]
@@ -243,29 +243,29 @@
       "year": "2024",
       "type": "Residential",
       "role": "Design",
-      "thumbnail": "https://via.placeholder.com/600x400/6a6a6a/ffffff?text=Minimalist+Home",
+      "thumbnail": "https://placehold.co/600x400/7a7a7a/ffffff?text=Minimalist+Home",
       "featured": false,
       "description": "A minimalist single-family home that emphasizes clean lines, natural materials, and a strong connection to the outdoor spaces. The design creates a serene living environment.",
       "concept": "Inspired by Japanese minimalism, this home strips away the unnecessary to focus on essential elements. We solved the challenge of creating warmth in a minimalist aesthetic through careful material selection and natural textures.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/6a6a6a/ffffff?text=Home+Exterior",
+          "url": "https://placehold.co/1920x1080/7a7a7a/ffffff?text=Home+Exterior",
           "caption": "Street view"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/7a7a7a/ffffff?text=Interior+Space",
+          "url": "https://placehold.co/1920x1080/8a8a8a/ffffff?text=Interior+Space",
           "caption": "Open living space"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/8a8a8a/ffffff?text=Floor+Plans",
+          "url": "https://placehold.co/1920x1080/9a9a9a/ffffff?text=Floor+Plans",
           "caption": "Floor plans all levels"
         },
         {
           "type": "detail",
-          "url": "https://via.placeholder.com/1920x1080/9a9a9a/ffffff?text=Window+Detail",
+          "url": "https://placehold.co/1920x1080/aaaaaa/ffffff?text=Window+Detail",
           "caption": "Frameless window detail"
         }
       ]
@@ -278,29 +278,29 @@
       "year": "2023",
       "type": "Interior Design",
       "role": "Interior Design",
-      "thumbnail": "https://via.placeholder.com/600x400/7a7a7a/ffffff?text=Restaurant+Interior",
+      "thumbnail": "https://placehold.co/600x400/8a8a8a/ffffff?text=Restaurant+Interior",
       "featured": false,
       "description": "Contemporary restaurant interior design that creates an intimate dining atmosphere while accommodating 80 seats. The project combines industrial elements with warm natural materials.",
       "concept": "The design creates distinct dining zones within an open space, each with its own character while maintaining visual cohesion. We addressed acoustic challenges through strategic use of soft materials and suspended elements.",
       "gallery": [
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/7a7a7a/ffffff?text=Restaurant+Main",
+          "url": "https://placehold.co/1920x1080/8a8a8a/ffffff?text=Restaurant+Main",
           "caption": "Main dining area"
         },
         {
           "type": "render",
-          "url": "https://via.placeholder.com/1920x1080/8a8a8a/ffffff?text=Bar+Area",
+          "url": "https://placehold.co/1920x1080/9a9a9a/ffffff?text=Bar+Area",
           "caption": "Bar and lounge"
         },
         {
           "type": "plan",
-          "url": "https://via.placeholder.com/1920x1080/9a9a9a/ffffff?text=Layout+Plan",
+          "url": "https://placehold.co/1920x1080/aaaaaa/ffffff?text=Layout+Plan",
           "caption": "Furniture layout and circulation"
         },
         {
           "type": "detail",
-          "url": "https://via.placeholder.com/1920x1080/aaaaaa/ffffff?text=Lighting+Plan",
+          "url": "https://placehold.co/1920x1080/bbbbbb/ffffff?text=Lighting+Plan",
           "caption": "Custom lighting fixtures"
         }
       ]

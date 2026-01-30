@@ -56,25 +56,6 @@ function ProjectDetailPage() {
     setLightboxImage(filteredGallery[newIndex]);
   };
 
-  const getNextProject = () => {
-    const currentIndex = projectsData.projects.findIndex((p) => p.id === id);
-    if (currentIndex < projectsData.projects.length - 1) {
-      return projectsData.projects[currentIndex + 1];
-    }
-    return null;
-  };
-
-  const getPrevProject = () => {
-    const currentIndex = projectsData.projects.findIndex((p) => p.id === id);
-    if (currentIndex > 0) {
-      return projectsData.projects[currentIndex - 1];
-    }
-    return null;
-  };
-
-  const nextProject = getNextProject();
-  const prevProject = getPrevProject();
-
   if (isLoading) {
     return (
       <>
@@ -217,35 +198,6 @@ function ProjectDetailPage() {
                 </div>
               </div>
             )}
-
-            {/* Navigation to Next/Previous Projects */}
-            <div className="project-navigation">
-              {prevProject ? (
-                <Link
-                  to={`/project/${prevProject.id}`}
-                  className="project-nav-btn"
-                >
-                  <span className="nav-arrow">←</span>
-                  <span className="nav-text">Previous Project</span>
-                </Link>
-              ) : (
-                <div></div>
-              )}
-              <Link to="/#projects" className="project-nav-btn center">
-                <span className="nav-text">All Projects</span>
-              </Link>
-              {nextProject ? (
-                <Link
-                  to={`/project/${nextProject.id}`}
-                  className="project-nav-btn"
-                >
-                  <span className="nav-text">Next Project</span>
-                  <span className="nav-arrow">→</span>
-                </Link>
-              ) : (
-                <div></div>
-              )}
-            </div>
           </div>
         </div>
       </section>
