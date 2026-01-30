@@ -1,24 +1,22 @@
 import { useState, useEffect, useRef } from "react";
-import * as pdfjsLib from "pdfjs-dist";
-
-// Set up PDF.js worker
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
+import { usePDF } from "../context/PDFContext";
 
 function Portfolio() {
-  const [pdfDoc, setPdfDoc] = useState(null);
-  const [currentSpread, setCurrentSpread] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadingProgress, setLoadingProgress] = useState(0);
+  const {
+    pdfDoc,
+    totalPages,
+    isLoading,
+    loadingProgress,
+    error,
+    currentSpread,
+    setCurrentSpread,
+  } = usePDF();
   const [pageCache] = useState(new Map());
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const canvasLeftRef = useRef(null);
   const canvasRightRef = useRef(null);
   const bookRef = useRef(null);
-
-  useEffect(() => {
-    loadPDF();
-  }, []);
 
   useEffect(() => {
     if (pdfDoc) {
@@ -26,34 +24,62 @@ function Portfolio() {
     }
   }, [currentSpread, pdfDoc]);
 
-  const loadPDF = async () => {
-    try {
-      setIsLoading(true);
-      const pdfPath =
-        "https://natalia-portfolio-files.s3.eu-central-1.amazonaws.com/file.pdf";
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        prevSpread();
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        nextSpread();
+      }
+    };
 
-      const loadingTask = pdfjsLib.getDocument({
-        url: pdfPath,
-        cMapUrl: `https://cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjsLib.version}/cmaps/`,
-        cMapPacked: true,
-      });
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [currentSpread, isAnimating]);
 
-      loadingTask.onProgress = (progress) => {
-        if (progress.total > 0) {
-          const percent = Math.round((progress.loaded / progress.total) * 100);
-          setLoadingProgress(percent);
+  // Touch gesture support for mobile
+  useEffect(() => {
+    const book = bookRef.current;
+    if (!book) return;
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const minSwipeDistance = 50;
+
+    const handleTouchStart = (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    };
+
+    const handleTouchEnd = (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+
+      // Check if horizontal swipe is more significant than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (Math.abs(deltaX) > minSwipeDistance) {
+          if (deltaX > 0) {
+            // Swipe right - go to previous page
+            prevSpread();
+          } else {
+            // Swipe left - go to next page
+            nextSpread();
+          }
         }
-      };
+      }
+    };
 
-      const doc = await loadingTask.promise;
-      setPdfDoc(doc);
-      setTotalPages(doc.numPages);
-      setIsLoading(false);
-    } catch (error) {
-      console.error("Error loading PDF:", error);
-      setIsLoading(false);
-    }
-  };
+    book.addEventListener("touchstart", handleTouchStart, { passive: true });
+    book.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+    return () => {
+      book.removeEventListener("touchstart", handleTouchStart);
+      book.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [currentSpread, isAnimating]);
 
   const renderPage = async (pageNum, canvas, ctx) => {
     if (!canvas || !ctx || !bookRef.current) return;
@@ -148,17 +174,44 @@ function Portfolio() {
   };
 
   const nextSpread = () => {
+    if (isAnimating) return;
+
     const nextSpreadIndex = currentSpread + 1;
     const rightPageNum = nextSpreadIndex === 0 ? 1 : nextSpreadIndex * 2 + 1;
-    if (rightPageNum <= totalPages) {
-      setCurrentSpread(nextSpreadIndex);
+    if (rightPageNum > totalPages) return;
+
+    setIsAnimating(true);
+    if (bookRef.current) {
+      bookRef.current.classList.add("turning-next");
     }
+
+    // Update content at mid-animation (500ms for 1s animation)
+    setTimeout(() => {
+      setCurrentSpread(nextSpreadIndex);
+      if (bookRef.current) {
+        bookRef.current.classList.remove("turning-next");
+      }
+      setIsAnimating(false);
+    }, 500);
   };
 
   const prevSpread = () => {
-    if (currentSpread > 0) {
-      setCurrentSpread(currentSpread - 1);
+    if (isAnimating) return;
+    if (currentSpread === 0) return;
+
+    setIsAnimating(true);
+    if (bookRef.current) {
+      bookRef.current.classList.add("turning-prev");
     }
+
+    // Update content at mid-animation (500ms for 1s animation)
+    setTimeout(() => {
+      setCurrentSpread(currentSpread - 1);
+      if (bookRef.current) {
+        bookRef.current.classList.remove("turning-prev");
+      }
+      setIsAnimating(false);
+    }, 500);
   };
 
   const jumpToPage = () => {
