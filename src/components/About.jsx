@@ -9,7 +9,7 @@ function About() {
         <div className="about-content">
           <div className="about-image">
             <img
-              src="/data/profile.jpg"
+              src="https://natalia-portfolio-files.s3.eu-central-1.amazonaws.com/profile.jpg"
               alt="Architect Portrait"
               loading="lazy"
             />
