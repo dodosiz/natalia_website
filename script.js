@@ -685,3 +685,427 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 }); // End of DOMContentLoaded
+
+// ========================================
+// Projects Section
+// ========================================
+document.addEventListener("DOMContentLoaded", function () {
+  const projectsGrid = document.getElementById("projects-grid");
+  const projectsLoading = document.getElementById("projects-loading");
+  const noResults = document.getElementById("no-results");
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  let allProjects = [];
+  let currentFilter = "all";
+
+  // Load projects from JSON
+  async function loadProjects() {
+    try {
+      if (projectsLoading) projectsLoading.style.display = "flex";
+      if (noResults) noResults.style.display = "none";
+
+      const response = await fetch("data/projects.json");
+      const data = await response.json();
+      allProjects = data.projects;
+
+      if (projectsLoading) projectsLoading.style.display = "none";
+      renderProjects(allProjects);
+    } catch (error) {
+      console.error("Error loading projects:", error);
+      if (projectsLoading) projectsLoading.style.display = "none";
+      if (projectsGrid) {
+        projectsGrid.innerHTML =
+          '<p style="text-align: center; color: #666;">Error loading projects. Please try again later.</p>';
+      }
+    }
+  }
+
+  // Render projects to the grid
+  function renderProjects(projects) {
+    if (!projectsGrid) return;
+
+    projectsGrid.innerHTML = "";
+
+    if (projects.length === 0) {
+      if (noResults) noResults.style.display = "block";
+      return;
+    }
+
+    if (noResults) noResults.style.display = "none";
+
+    projects.forEach((project, index) => {
+      const projectCard = createProjectCard(project, index);
+      projectsGrid.appendChild(projectCard);
+    });
+  }
+
+  // Create project card element
+  function createProjectCard(project, index) {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.style.animationDelay = `${index * 0.1}s`;
+    card.dataset.category = project.category;
+
+    card.innerHTML = `
+      <div class="project-card-image">
+        <img src="${project.thumbnail}" alt="${project.title}" loading="lazy" />
+        <div class="project-card-overlay">
+          <span class="project-card-overlay-text">View Project</span>
+        </div>
+      </div>
+      <div class="project-card-content">
+        <div class="project-card-category">${getCategoryLabel(project.category)}</div>
+        <h3 class="project-card-title">${project.title}</h3>
+        <div class="project-card-meta">
+          <span>${project.location}</span>
+          <span>•</span>
+          <span>${project.year}</span>
+        </div>
+        <p class="project-card-description">${project.description.substring(0, 120)}...</p>
+      </div>
+    `;
+
+    card.addEventListener("click", () => {
+      window.location.href = `project-detail.html?id=${project.id}`;
+    });
+
+    return card;
+  }
+
+  // Get readable category label
+  function getCategoryLabel(category) {
+    const labels = {
+      residential: "Residential",
+      commercial: "Commercial / Offices",
+      concept: "Concept / Competition",
+      interior: "Interior Design",
+      construction: "Construction / Technical",
+    };
+    return labels[category] || category;
+  }
+
+  // Filter projects
+  function filterProjects(filter) {
+    currentFilter = filter;
+
+    const filteredProjects =
+      filter === "all"
+        ? allProjects
+        : allProjects.filter((project) => project.category === filter);
+
+    // Add loading effect
+    if (projectsGrid) {
+      projectsGrid.classList.add("loading");
+      setTimeout(() => {
+        renderProjects(filteredProjects);
+        projectsGrid.classList.remove("loading");
+      }, 300);
+    }
+  }
+
+  // Filter button click handlers
+  if (filterButtons) {
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        filterProjects(button.dataset.filter);
+      });
+    });
+  }
+
+  // Load projects on page load if projects section exists
+  if (projectsGrid) {
+    loadProjects();
+  }
+});
+
+// ========================================
+// Project Detail Page
+// ========================================
+document.addEventListener("DOMContentLoaded", function () {
+  // Check if we're on the project detail page
+  const isProjectDetailPage =
+    window.location.pathname.includes("project-detail");
+
+  if (!isProjectDetailPage) return;
+
+  console.log("Project detail page loaded");
+
+  const projectContent = document.getElementById("project-content");
+  const projectLoading = document.getElementById("project-loading");
+  const projectError = document.getElementById("project-error");
+  const galleryFilters = document.querySelectorAll(".gallery-filter-btn");
+
+  console.log("Elements found:", {
+    projectContent: !!projectContent,
+    projectLoading: !!projectLoading,
+    projectError: !!projectError,
+  });
+
+  let currentProject = null;
+  let allProjects = [];
+  let currentGalleryFilter = "all";
+
+  // Get project ID from URL
+  function getProjectIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get("id");
+  }
+
+  // Load project data
+  async function loadProjectDetail() {
+    const projectId = getProjectIdFromUrl();
+
+    console.log("Project ID from URL:", projectId);
+
+    if (!projectId) {
+      console.error("No project ID found in URL");
+      showError();
+      return;
+    }
+
+    try {
+      const response = await fetch("data/projects.json");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      allProjects = data.projects;
+
+      console.log("Loaded projects:", allProjects.length);
+      console.log("Looking for project with ID:", projectId);
+
+      currentProject = allProjects.find((p) => p.id === projectId);
+
+      if (!currentProject) {
+        console.error("Project not found with ID:", projectId);
+        showError();
+        return;
+      }
+
+      console.log("Found project:", currentProject.title);
+      renderProjectDetail(currentProject);
+      setupNavigation();
+      if (projectLoading) projectLoading.style.display = "none";
+      if (projectContent) projectContent.style.display = "block";
+    } catch (error) {
+      console.error("Error loading project:", error);
+      showError();
+    }
+  }
+
+  // Show error state
+  function showError() {
+    if (projectLoading) projectLoading.style.display = "none";
+    if (projectError) projectError.style.display = "block";
+  }
+
+  // Render project details
+  function renderProjectDetail(project) {
+    // Hero section
+    const heroImage = document.getElementById("project-hero-image");
+    const title = document.getElementById("project-title");
+
+    if (heroImage) {
+      heroImage.src = project.gallery[0]?.url || project.thumbnail;
+      heroImage.alt = project.title;
+    }
+    if (title) title.textContent = project.title;
+
+    // Info box
+    const location = document.getElementById("project-location");
+    const year = document.getElementById("project-year");
+    const type = document.getElementById("project-type");
+    const role = document.getElementById("project-role");
+
+    if (location) location.textContent = project.location;
+    if (year) year.textContent = project.year;
+    if (type) type.textContent = project.type;
+    if (role) role.textContent = project.role;
+
+    // Description
+    const description = document.getElementById("project-description-text");
+    const concept = document.getElementById("project-concept-text");
+
+    if (description) description.textContent = project.description;
+    if (concept) concept.textContent = project.concept;
+
+    // Gallery
+    renderGallery(project.gallery);
+
+    // Update page title
+    document.title = `${project.title} | Architecture Portfolio`;
+  }
+
+  // Render gallery
+  function renderGallery(gallery) {
+    const galleryGrid = document.getElementById("project-gallery");
+    if (!galleryGrid) return;
+
+    galleryGrid.innerHTML = "";
+
+    gallery.forEach((item, index) => {
+      const galleryItem = document.createElement("div");
+      galleryItem.className = "gallery-item";
+      galleryItem.dataset.type = item.type;
+
+      galleryItem.innerHTML = `
+        <img src="${item.url}" alt="${item.caption}" loading="lazy" />
+        <div class="gallery-item-type">${item.type}</div>
+        <div class="gallery-item-caption">${item.caption}</div>
+      `;
+
+      galleryItem.addEventListener("click", () => {
+        openLightbox(index, gallery);
+      });
+
+      galleryGrid.appendChild(galleryItem);
+    });
+  }
+
+  // Filter gallery
+  function filterGallery(type) {
+    currentGalleryFilter = type;
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    galleryItems.forEach((item) => {
+      if (type === "all" || item.dataset.type === type) {
+        item.classList.remove("hidden");
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+  }
+
+  // Gallery filter button handlers
+  if (galleryFilters) {
+    galleryFilters.forEach((button) => {
+      button.addEventListener("click", () => {
+        galleryFilters.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        filterGallery(button.dataset.type);
+      });
+    });
+  }
+
+  // Setup project navigation
+  function setupNavigation() {
+    if (!currentProject || allProjects.length === 0) return;
+
+    const currentIndex = allProjects.findIndex(
+      (p) => p.id === currentProject.id,
+    );
+    const prevIndex =
+      (currentIndex - 1 + allProjects.length) % allProjects.length;
+    const nextIndex = (currentIndex + 1) % allProjects.length;
+
+    const prevBtn = document.getElementById("prev-project");
+    const nextBtn = document.getElementById("next-project");
+
+    if (prevBtn) {
+      prevBtn.href = `project-detail.html?id=${allProjects[prevIndex].id}`;
+    }
+
+    if (nextBtn) {
+      nextBtn.href = `project-detail.html?id=${allProjects[nextIndex].id}`;
+    }
+  }
+
+  // Lightbox functionality for gallery
+  let currentLightboxIndex = 0;
+  let currentGalleryImages = [];
+
+  function openLightbox(index, gallery) {
+    currentLightboxIndex = index;
+    currentGalleryImages = gallery;
+
+    const lightbox = document.getElementById("lightbox");
+    if (!lightbox) return;
+
+    updateLightboxContent();
+    lightbox.style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+
+  function updateLightboxContent() {
+    const lightbox = document.getElementById("lightbox");
+    if (!lightbox || currentGalleryImages.length === 0) return;
+
+    const img = lightbox.querySelector("img");
+    const title = lightbox.querySelector(".lightbox-info h3");
+    const caption = lightbox.querySelector(".lightbox-info p");
+
+    const currentImage = currentGalleryImages[currentLightboxIndex];
+
+    img.src = currentImage.url;
+    img.alt = currentImage.caption;
+    title.textContent = currentImage.type.toUpperCase();
+    caption.textContent = currentImage.caption;
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    if (lightbox) {
+      lightbox.style.display = "none";
+      document.body.style.overflow = "";
+    }
+  }
+
+  function nextLightboxImage() {
+    currentLightboxIndex =
+      (currentLightboxIndex + 1) % currentGalleryImages.length;
+    updateLightboxContent();
+  }
+
+  function prevLightboxImage() {
+    currentLightboxIndex =
+      (currentLightboxIndex - 1 + currentGalleryImages.length) %
+      currentGalleryImages.length;
+    updateLightboxContent();
+  }
+
+  // Lightbox event listeners
+  const lightbox = document.getElementById("lightbox");
+  if (lightbox) {
+    const closeBtn = lightbox.querySelector(".lightbox-close");
+    const prevBtn = lightbox.querySelector(".lightbox-prev");
+    const nextBtn = lightbox.querySelector(".lightbox-next");
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeLightbox);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        prevLightboxImage();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        nextLightboxImage();
+      });
+    }
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.style.display === "flex") {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") prevLightboxImage();
+        if (e.key === "ArrowRight") nextLightboxImage();
+      }
+    });
+  }
+
+  // Load project on page load
+  loadProjectDetail();
+});

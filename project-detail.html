@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta
+      name="description"
+      content="Project Details - Architecture Portfolio"
+    />
+    <title>Project Details | Architecture Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">
+          <h1 class="logo-text">Natalia Papastoitsi</h1>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#portfolio">Portfolio</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Project Detail Section -->
+    <section class="project-detail">
+      <!-- Loading State -->
+      <div class="project-loading" id="project-loading">
+        <div class="loading-spinner"></div>
+        <p>Loading project...</p>
+      </div>
+
+      <!-- Project Content -->
+      <div class="project-content" id="project-content" style="display: none">
+        <!-- Hero Image -->
+        <div class="project-hero">
+          <img id="project-hero-image" src="" alt="Project" />
+          <div class="project-hero-overlay"></div>
+          <div class="project-hero-content">
+            <div class="container">
+              <h1 id="project-title" class="project-hero-title"></h1>
+              <a href="index.html#projects" class="btn btn-back"
+                >← Back to Projects</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Info -->
+        <div class="container">
+          <div class="project-info-section">
+            <div class="project-main-info">
+              <div class="project-info-box">
+                <div class="info-item">
+                  <span class="info-label">Location</span>
+                  <span id="project-location" class="info-value"></span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Year</span>
+                  <span id="project-year" class="info-value"></span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Type</span>
+                  <span id="project-type" class="info-value"></span>
+                </div>
+                <div class="info-item">
+                  <span class="info-label">Role</span>
+                  <span id="project-role" class="info-value"></span>
+                </div>
+              </div>
+
+              <div class="project-description">
+                <h2>About the Project</h2>
+                <p id="project-description-text"></p>
+
+                <h3>Concept & Solution</h3>
+                <p id="project-concept-text"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Gallery -->
+          <div class="project-gallery-section">
+            <h2>Project Gallery</h2>
+
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+              <button class="gallery-filter-btn active" data-type="all">
+                All
+              </button>
+              <button class="gallery-filter-btn" data-type="render">
+                Renders
+              </button>
+              <button class="gallery-filter-btn" data-type="plan">Plans</button>
+              <button class="gallery-filter-btn" data-type="section">
+                Sections
+              </button>
+              <button class="gallery-filter-btn" data-type="detail">
+                Details
+              </button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="project-gallery-grid" id="project-gallery">
+              <!-- Gallery items will be loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Navigation to Next/Previous Projects -->
+          <div class="project-navigation">
+            <a href="#" id="prev-project" class="project-nav-btn">
+              <span class="nav-arrow">←</span>
+              <span class="nav-text">Previous Project</span>
+            </a>
+            <a href="index.html#projects" class="project-nav-btn center">
+              <span class="nav-text">All Projects</span>
+            </a>
+            <a href="#" id="next-project" class="project-nav-btn">
+              <span class="nav-text">Next Project</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div class="project-error" id="project-error" style="display: none">
+        <div class="container">
+          <h2>Project Not Found</h2>
+          <p>Sorry, the requested project could not be found.</p>
+          <a href="index.html#projects" class="btn btn-primary"
+            >Back to Projects</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Natalia Papastoitsi</h3>
+            <p>Creating spaces that inspire</p>
+          </div>
+          <div class="footer-links">
+            <ul>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#projects">Projects</a></li>
+              <li><a href="index.html#portfolio">Portfolio</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Architecture Portfolio. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <div class="lightbox-inner">
+          <img src="" alt="Project Image" />
+          <div class="lightbox-info">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <button class="lightbox-nav lightbox-prev" aria-label="Previous image">
+        ‹
+      </button>
+      <button class="lightbox-nav lightbox-next" aria-label="Next image">
+        ›
+      </button>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
